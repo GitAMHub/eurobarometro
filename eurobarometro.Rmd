@@ -1,0 +1,35 @@
+---
+title: "Special Eurobarometer 451: Future of Europe"
+output: html_notebook
+---
+
+[Special Eurobarometer 451: Future of Europe](http://data.europa.eu/euodp/en/data/dataset/S2131_86_1_451_ENG)
+
+Publisher
+Directorate-General for Communication
+Description
+The "Future of Europe" survey was carried out between 24 September and 3 October 2016 in the 28 EU Member States. It is part of a series of reports initiated in 2006. The "Future of Europe" report presents a snapshot of the way Europeans perceived the EU and its future direction in 2016. It begins by considering the EU in today's world: EU’s main assets and challenges, the EU's values and the EU on the world scene. Then it tackles some aspects of political and social life in the EU and issues related to the future of Europe.
+
+```{r}
+library(ggplot2)
+library(scales)
+library(readxl)
+eu<-read.csv("eur6.csv")
+```
+
+
+```{r}
+p<-qplot(TP,TN, data=eu, colour= VALORADO, xlab = ("Total valoración positiva (%)"), ylab="Total valoración negativa (%)")
+p + facet_grid(PAIS ~ VALORADO)
+# p + scale_x_discrete(labels = NULL )+ scale_y_discrete(labels = NULL)
+```
+
+```{r}
+p<-qplot(TP,TN, data=eu, colour= VALORADO, xlab = ("Total valoración positiva (%)"), ylab="Total valoración negativa (%)")
+p + facet_grid(. ~ VALORADO)
+# p + scale_x_discrete(labels = NULL )+ scale_y_discrete(labels = NULL)
+```
+
+
+[Copyleft](https://es.wikipedia.org/wiki/Copyleft) Antonio Maudes
+
