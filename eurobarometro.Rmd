@@ -20,9 +20,18 @@ eu<-read.csv("eur6.csv")
 
 ```{r}
 p<-qplot(TP,TN, data=eu, colour= VALORADO, xlab = ("Total valoración positiva (%)"), ylab="Total valoración negativa (%)")
-p + facet_grid(PAIS ~ VALORADO)
-# p + scale_x_discrete(labels = NULL )+ scale_y_discrete(labels = NULL)
+p + facet_grid(PAIS ~ VALORADO) +theme(text = element_text(size = 11), axis.text=element_text(size = 6)) 
+#p + scale_x_discrete(labels = NULL )+ scale_y_discrete(labels = NULL)
 ```
+
+
+```{r}
+p<-qplot(TP,TN, data=eu, colour= VALORADO, xlab = ("Total valoración positiva (%)"), ylab="Total valoración negativa (%)")
+p + facet_grid(VALORADO ~ PAIS) +theme(text = element_text(size = 11), axis.text=element_text(size = 6)) 
+#p + scale_x_discrete(labels = NULL )+ scale_y_discrete(labels = NULL)
+```
+
+
 
 ```{r}
 p<-qplot(TP,TN, data=eu, colour= VALORADO, xlab = ("Total valoración positiva (%)"), ylab="Total valoración negativa (%)")
